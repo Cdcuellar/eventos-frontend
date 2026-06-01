@@ -34,6 +34,13 @@ const handleSubmit = async (e) => {
             response.data.token
         );
 
+        localStorage.setItem(
+            "user",
+            JSON.stringify(
+                response.data.user
+            )
+        );
+
         alert(
             "Usuario registrado correctamente"
         );
@@ -66,9 +73,15 @@ return (
                 ←
             </Link>
 
-            <h2 className="m-0">
-                Registro
-            </h2>
+            <div>
+
+                <h2>EventHub</h2>
+
+                <p className="text-secondary">
+                    Crear una nueva cuenta
+                </p>
+
+            </div>
 
         </div>
 

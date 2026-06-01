@@ -33,6 +33,13 @@ function Login() {
                 response.data.token
             );
 
+            localStorage.setItem(
+                "user",
+                JSON.stringify(
+                    response.data.user
+                )
+            );
+
             navigate("/dashboard");
 
         } catch {
@@ -49,7 +56,15 @@ function Login() {
 
             <div className="d-flex justify-content-between mb-4">
 
-                <h2>Iniciar Sesión</h2>
+                <div>
+
+                    <h2>EventHub</h2>
+
+                    <p className="text-secondary">
+                        Accede a tu cuenta
+                    </p>
+
+                </div>
 
                 <Link
                     to="/register"
