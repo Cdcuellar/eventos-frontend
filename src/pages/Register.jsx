@@ -2,6 +2,12 @@ import { useState } from "react";
 import api from "../services/api";
 import { Link, useNavigate } from "react-router-dom";
 
+/**
+ * Página de registro de usuarios.
+ *
+ * Envía los datos al endpoint de registro y
+ * navega al dashboard una vez completada la creación.
+ */
 function Register() {
 
 const navigate = useNavigate();
@@ -22,6 +28,7 @@ const handleChange = (e) => {
 const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Registro de usuario y almacenamiento del token
     try {
 
         const response = await api.post(

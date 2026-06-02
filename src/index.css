@@ -1,3 +1,7 @@
+/*
+  Tema oscuro global de la aplicación.
+  Define el fondo, la tipografía y los colores base.
+*/
 body {
     margin: 0;
     min-height: 100vh;

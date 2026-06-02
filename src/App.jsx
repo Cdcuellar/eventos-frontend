@@ -10,6 +10,10 @@ function App() {
         <BrowserRouter>
             <Routes>
 
+                {/*
+                  Definición de rutas principales de la aplicación.
+                  Cada ruta carga la página React correspondiente.
+                */}
                 <Route
                     path="/"
                     element={<Login />}

@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
+/**
+ * Página de gestión de asistencias.
+ *
+ * Recupera las inscripciones y permite confirmar
+ * la asistencia de los participantes.
+ */
 function Attendance() {
 
     const navigate = useNavigate();
@@ -16,6 +22,7 @@ function Attendance() {
 
     const loadRegistrations = async () => {
 
+        // Consulta la lista de inscripciones con usuarios y eventos
         try {
 
             const response =
@@ -35,6 +42,7 @@ function Attendance() {
 
     const markAttendance = async (id) => {
 
+        // Confirmación previa antes de marcar asistencia
         const confirmAttendance =
             window.confirm(
                 "¿Confirmar asistencia de este participante?"

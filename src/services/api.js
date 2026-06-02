@@ -7,6 +7,13 @@ const api = axios.create({
     },
 });
 
+/**
+ * Configuración centralizada de Axios.
+ *
+ * Define la URL base de la API y agrega encabezados
+ * genéricos para todas las solicitudes.
+ */
+
 api.interceptors.request.use((config) => {
 
     const token = localStorage.getItem("token");
@@ -18,5 +25,10 @@ api.interceptors.request.use((config) => {
 
     return config;
 });
+
+/**
+ * Interceptor HTTP para agregar el token de autorización
+ * en cada solicitud cuando el usuario está autenticado.
+ */
 
 export default api;

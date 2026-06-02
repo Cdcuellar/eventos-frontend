@@ -2,6 +2,12 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
 
+/**
+ * Página de inicio de sesión.
+ *
+ * Consume la API de autenticación, almacena el token
+ * y redirige al dashboard tras un acceso exitoso.
+ */
 function Login() {
 
     const navigate = useNavigate();
@@ -21,6 +27,7 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Envío de credenciales al endpoint de login
         try {
 
             const response = await api.post(

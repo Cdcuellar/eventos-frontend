@@ -2,6 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
+/**
+ * Página principal del dashboard.
+ *
+ * Muestra el listado de eventos, permite CRUD de eventos
+ * y gestiona inscripciones según el rol del usuario.
+ */
 function Dashboard() {
 
     const navigate = useNavigate();
@@ -40,6 +46,11 @@ function Dashboard() {
 
     }, []);
 
+    /**
+     * READ: Cargar eventos.
+     *
+     * Obtiene el listado de eventos desde la API.
+     */
     const loadEvents = async () => {
 
         try {
@@ -56,6 +67,12 @@ function Dashboard() {
 
     };
 
+    /**
+     * Consultar estadísticas.
+     *
+     * Obtiene los totales generales para mostrar
+     * en el panel administrativo.
+     */
     const loadStats = async () => {
 
         try {
@@ -82,6 +99,11 @@ function Dashboard() {
 
     };
 
+    /**
+     * CREATE: Crear evento.
+     *
+     * Envía los datos para crear un nuevo evento.
+     */
     const createEvent = async (e) => {
 
         e.preventDefault();
@@ -118,6 +140,11 @@ function Dashboard() {
 
     };
 
+    /**
+     * DELETE: Eliminar evento.
+     *
+     * Solicita confirmación y borra el evento seleccionado.
+     */
     const deleteEvent = async (id) => {
 
     const confirmDelete =
@@ -145,6 +172,11 @@ function Dashboard() {
 
     };
 
+    /**
+     * Inscribirse a evento.
+     *
+     * Registra al usuario autenticado en el evento.
+     */
     const registerToEvent = async (eventId) => {
 
         try {
@@ -169,6 +201,11 @@ function Dashboard() {
         }
 
     };
+    /**
+     * Cancelar inscripción.
+     *
+     * Elimina la inscripción del usuario para el evento.
+     */
     const unregisterFromEvent = async (eventId) => {
 
         try {
@@ -195,6 +232,11 @@ function Dashboard() {
     };
     
 
+    /**
+     * Preparar UPDATE.
+     *
+     * Carga los datos del evento en el formulario para editarlo.
+     */
     const editEvent = (event) => {
 
         setForm({
@@ -209,6 +251,12 @@ function Dashboard() {
 
     };
 
+    /**
+     * UPDATE: Actualizar evento.
+     *
+     * Envía los cambios al servidor y recarga
+     * la lista de eventos una vez actualizado.
+     */
     const updateEvent = async (e) => {
 
         e.preventDefault();
@@ -270,6 +318,8 @@ function Dashboard() {
                 </div>
 
                 {
+                    // Gestión visual de roles: solo los administradores
+                    // ven el acceso a la gestión de asistencias.
                     user?.role === "admin" && (
 
                         <button
