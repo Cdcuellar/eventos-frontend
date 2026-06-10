@@ -62,3 +62,7 @@ body {
     --bs-table-bg: #161b22;
     --bs-table-striped-bg: #1c2128;
 }
+.form-control::placeholder {
+    color: #9ca3af !important;
+    opacity: 1;
+}
